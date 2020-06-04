@@ -1,32 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-const gurusList = [
-  'Earth',
-  'Water',
-  'Air',
-  'Fire',
-  'Sky',
-  'Moon',
-  'Sun',
-  'Pigeon',
-  'Python',
-  'Ocean',
-  'Moth',
-  'Bee',
-  'Honey-gatherer',
-  'Elephant',
-  'Deer',
-  'Fish',
-  'Dancing-girl Pingala',
-  'Raven',
-  'Child',
-  'Maiden',
-  'Serpent',
-  'An arrow-maker',
-  'Spider',
-  'Beetle'
-]
+import gurusList from '../lib/gurusList'
 
 const StyledMainDiv = styled.div`
   display: flex;
