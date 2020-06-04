@@ -30,6 +30,9 @@ jobs:
             ssh-keyscan -H sivananda.webfactional.com >> ~/.ssh/known_hosts
             cd client
             sshpass -p $sshPass scp dist/* sivananda@sivananda.webfactional.com:webapps/local_sivananda/avadhuta-play
+      - store_artifacts:
+          path: client/dist/
+          destination: dist
 workflows:
   version: 2
   commit:
