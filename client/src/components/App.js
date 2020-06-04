@@ -1,6 +1,33 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
+const gurusList = [
+  'Earth',
+  'Water',
+  'Air',
+  'Fire',
+  'Sky',
+  'Moon',
+  'Sun',
+  'Pigeon',
+  'Python',
+  'Ocean',
+  'Moth',
+  'Bee',
+  'Honey-gatherer',
+  'Elephant',
+  'Deer',
+  'Fish',
+  'Dancing-girl Pingala',
+  'Raven',
+  'Child',
+  'Maiden',
+  'Serpent',
+  'An arrow-maker',
+  'Spider',
+  'Beetle'
+]
+
 const StyledMainDiv = styled.div`
   display: flex;
   justify-content: flex-start;
@@ -19,42 +46,24 @@ const StyledChildDiv = styled.div`
   height: 3em;
   text-align: center;
   margin: 10px;
-  background-color: #fefefe;
+  color: #0d00cc;
+  background-color: honeydew;
   box-shadow: 1px 1px #ddd;
+  border-radius: 8px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   :hover {
-    color: grey;
+    color: darkRed;
+    box-shadow: none;
+    transform: translate(1px, 1px);
   }
 `
 
 function App() {
-  const [gurus, setGurus] = useState([
-    'Earth',
-    'Water',
-    'Air',
-    'Fire',
-    'Sky',
-    'Moon',
-    'Sun',
-    'Pigeon',
-    'Python',
-    'Ocean',
-    'Moth',
-    'Bee',
-    'Honey-gatherer',
-    'Elephant',
-    'Deer',
-    'Fish',
-    'Dancing-girl Pingala',
-    'Raven',
-    'Child',
-    'Maiden',
-    'Serpent',
-    'An arrow-maker',
-    'Spider',
-    'Beetle'
-  ])
+  const [gurus, setGurus] = useState(gurusList)
 
   return (
     <StyledMainDiv>
@@ -63,7 +72,7 @@ function App() {
           key={i}
           onClick={() => setGurus(gurus => gurus.filter((a, j) => i !== j))}
         >
-          {gurus[i]}
+          <div>{gurus[i]}</div>
         </StyledChildDiv>
       ))}
     </StyledMainDiv>
