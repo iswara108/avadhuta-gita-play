@@ -11,7 +11,8 @@ const StyledMainDiv = styled.div`
   margin: -10px;
   height: calc(24em + 160px);
   max-width: 100%;
-  font-family: cursive;
+  font-family: 'Indie Flower', cursive;
+  font-weight: 700;
   font-size: 2em;
 `
 
