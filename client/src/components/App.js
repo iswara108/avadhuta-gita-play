@@ -31,6 +31,7 @@ const gurusList = [
 const StyledMainDiv = styled.div`
   display: flex;
   justify-content: flex-start;
+  align-content: flex-start;
   flex-flow: column wrap;
   margin: -10px;
   height: calc(24em + 160px);
