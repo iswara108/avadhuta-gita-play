@@ -32,17 +32,15 @@ const StyledMainDiv = styled.div`
   display: flex;
   justify-content: flex-start;
   flex-flow: column wrap;
-  flex: 0 0 30%;
+  margin: -10px;
   height: calc(24em + 160px);
-  width: 66%;
   max-width: 100%;
   font-family: cursive;
   font-size: 2em;
 `
 
 const StyledChildDiv = styled.div`
-  width: calc(33% - 30px);
-  min-width: ${document.body.clientWidth / 3 - 20}px;
+  width: calc(33% - 10px);
   height: 3em;
   text-align: center;
   margin: 10px;
@@ -66,16 +64,18 @@ function App() {
   const [gurus, setGurus] = useState(gurusList)
 
   return (
-    <StyledMainDiv>
-      {gurus.map((a, i) => (
-        <StyledChildDiv
-          key={i}
-          onClick={() => setGurus(gurus => gurus.filter((a, j) => i !== j))}
-        >
-          <div>{gurus[i]}</div>
-        </StyledChildDiv>
-      ))}
-    </StyledMainDiv>
+    <div style={{ margin: '10px' }}>
+      <StyledMainDiv>
+        {gurus.map((a, i) => (
+          <StyledChildDiv
+            key={i}
+            onClick={() => setGurus(gurus => gurus.filter((a, j) => i !== j))}
+          >
+            <div>{gurus[i]}</div>
+          </StyledChildDiv>
+        ))}
+      </StyledMainDiv>
+    </div>
   )
 }
 
