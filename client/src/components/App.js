@@ -53,8 +53,7 @@ function App() {
     return {
       guessedSoFar: 0,
       gurus: initialGurus,
-      falseGurusAdded: false,
-      gurusGuessed: []
+      falseGurusAdded: false
     }
   }
   function reducer(state, action) {
@@ -64,8 +63,8 @@ function App() {
         const newState = {
           ...state,
           guessedSoFar: state.guessedSoFar + 1,
-          gurusGuessed: state.gurusGuessed.concat(action.payload),
-          gurus: state.gurus.filter(guru => guru !== action.payload)
+          gurus: state.gurus.filter(guru => guru !== action.payload),
+          prevState: state
         }
         if (
           gurusList.length - newState.guessedSoFar <= 9 &&
@@ -76,16 +75,8 @@ function App() {
         }
         return newState
       case 'KEY_DOWN': {
-        console.log(action,state)
-        if (action.payload === 'Backspace' && state.guessedSoFar > 0) {
-          return {
-            ...state,
-            guessedSoFar: state.guessedSoFar - 1,
-            gurus: state.gurus.concat(state.gurusGuessed.reverse()[0]),
-            gurusGuessed: state.gurusGuessed.filter(
-              (a, i) => i > 0
-            )
-          }
+        if (action.payload === 'Backspace' && state.prevState) {
+          return state.prevState
         } else return state
       }
       default:
