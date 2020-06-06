@@ -1,7 +1,23 @@
 import React, { useState, useReducer } from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 import { gurusList, falseGurus, shuffleArray } from '../lib/gurusList'
+
+const resultAnimation = keyframes`
+  0% {opacity: 0;} 
+  100% {opacity: 1;}
+`
+
+const Result = styled.div`
+  animation-name: ${resultAnimation};
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 2s;
+  position: absolute;
+  width: 100vw;
+  text-align: center;
+  bottom: 20px;
+`
 
 const StyledMainDiv = styled.div`
   display: flex;
@@ -116,16 +132,7 @@ function App() {
           <StyledCongratulations>
             <div>Congratulations! All teachers have been found.</div>
           </StyledCongratulations>
-          <div
-            style={{
-              position: 'absolute',
-              width: '100vw',
-              textAlign: 'center',
-              bottom: '20px'
-            }}
-          >
-            {gurusList.join(', ')}
-          </div>
+          <Result>{gurusList.join(', ')}</Result>
         </>
       )}
     </div>
