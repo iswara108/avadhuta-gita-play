@@ -112,7 +112,7 @@ function App() {
 
   return (
     <div
-      style={{ margin: '10px' }}
+      style={{ margin: '10px', outline: 'none' }}
       onKeyDown={e => keyDown(e.key)}
       tabIndex={0}
     >
