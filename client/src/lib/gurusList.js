@@ -1,4 +1,4 @@
-const gurusList = [
+const gurusList = shuffleArray([
   'Earth',
   'Water',
   'Air',
@@ -23,7 +23,9 @@ const gurusList = [
   'An arrow-maker',
   'Spider',
   'Beetle'
-]
+])
+
+const falseGurus = shuffleArray(['Tree', 'Rope', 'Lion', 'Ant', 'Cow'])
 
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -33,4 +35,4 @@ function shuffleArray(array) {
   return array
 }
 
-export default shuffleArray(gurusList)
+export { gurusList, falseGurus, shuffleArray }

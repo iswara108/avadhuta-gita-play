@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useReducer } from 'react'
 import styled from 'styled-components'
 
-import gurusList from '../lib/gurusList'
+import { gurusList, falseGurus, shuffleArray } from '../lib/gurusList'
 
 const StyledMainDiv = styled.div`
   display: flex;
@@ -9,7 +9,7 @@ const StyledMainDiv = styled.div`
   align-content: flex-start;
   flex-flow: column wrap;
   margin: -10px;
-  height: calc(24em + 160px);
+  max-height: 100vh;
   max-width: 100%;
   font-family: 'Indie Flower', cursive;
   font-weight: 700;
@@ -37,21 +37,79 @@ const StyledChildDiv = styled.div`
   }
 `
 
+const StyledCongratulations = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3em;
+  color: darkRed;
+  font-family: arial;
+  height: 100vh;
+  text-align: center;
+`
+
 function App() {
-  const [gurus, setGurus] = useState(gurusList)
+  function initialState(initialGurus) {
+    return { guessedSoFar: 0, gurus: initialGurus, falseGurusAdded: false }
+  }
+  function reducer(state, action) {
+    switch (action.type) {
+      case 'GUESS':
+        if (falseGurus.some(fake => fake === action.payload)) return state
+        const newState = {
+          ...state,
+          guessedSoFar: state.guessedSoFar + 1,
+          gurus: state.gurus.filter(guru => guru !== action.payload)
+        }
+        if (
+          gurusList.length - newState.guessedSoFar <= 9 &&
+          !state.falseGurusAdded
+        ) {
+          newState.gurus = shuffleArray(newState.gurus.concat(falseGurus))
+          newState.falseGurusAdded = true
+        }
+        return newState
+      default:
+        return state
+    }
+  }
+  const [state, dispatch] = useReducer(reducer, gurusList, initialState)
+  const guessesLeft = gurusList.length - state.guessedSoFar
+
+  function guess(guru) {
+    dispatch({ type: 'GUESS', payload: guru })
+  }
 
   return (
     <div style={{ margin: '10px' }}>
-      <StyledMainDiv>
-        {gurus.map((a, i) => (
-          <StyledChildDiv
-            key={i}
-            onClick={() => setGurus(gurus => gurus.filter((a, j) => i !== j))}
+      {guessesLeft ? (
+        <>
+          <StyledMainDiv>
+            {state.gurus.map(guru => (
+              <StyledChildDiv key={guru} onClick={() => guess(guru)}>
+                <div>{guru}</div>
+              </StyledChildDiv>
+            ))}
+          </StyledMainDiv>
+          <footer>{guessesLeft} left to guess...</footer>
+        </>
+      ) : (
+        <>
+          <StyledCongratulations>
+            <div>Congratulations! All teachers have been found.</div>
+          </StyledCongratulations>
+          <div
+            style={{
+              position: 'absolute',
+              width: '100vw',
+              textAlign: 'center',
+              bottom: '20px'
+            }}
           >
-            <div>{gurus[i]}</div>
-          </StyledChildDiv>
-        ))}
-      </StyledMainDiv>
+            {gurusList.join(', ')}
+          </div>
+        </>
+      )}
     </div>
   )
 }
