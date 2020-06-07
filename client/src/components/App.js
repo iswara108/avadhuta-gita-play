@@ -25,7 +25,6 @@ const StyledMainDiv = styled.div`
   align-content: flex-start;
   flex-flow: row wrap;
   margin: -10px;
-  max-height: 100vh;
   max-width: 100%;
   font-family: cursive, 'Indie Flower';
   font-weight: 500;
@@ -125,7 +124,7 @@ function App() {
               </StyledChildDiv>
             ))}
           </StyledMainDiv>
-          <footer>{guessesLeft} left to guess...</footer>
+          <div style={{marginTop: "20px"}}>{guessesLeft} left to guess...</div>
         </>
       ) : (
         <>
