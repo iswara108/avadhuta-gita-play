@@ -27,9 +27,9 @@ const StyledMainDiv = styled.div`
   margin: -10px;
   max-height: 100vh;
   max-width: 100%;
-  font-family: 'Indie Flower', cursive;
-  font-weight: 700;
-  font-size: 2em;
+  font-family: Arial;
+  font-weight: 500;
+  font-size: 2.2em;
 `
 
 const StyledChildDiv = styled.div`
@@ -37,7 +37,7 @@ const StyledChildDiv = styled.div`
   height: 3em;
   text-align: center;
   margin: 10px;
-  color: #0d00cc;
+  color: darklateblue;
   background-color: honeydew;
   box-shadow: 1px 1px #ddd;
   border-radius: 8px;
