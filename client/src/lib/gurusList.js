@@ -11,7 +11,7 @@ const gurusList = shuffleArray([
   'Ocean',
   'Moth',
   'Bumblebee',
-  'Honeybee',
+  'Honey gatherer',
   'Elephant',
   'Deer',
   'Fish',
