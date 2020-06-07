@@ -18,7 +18,7 @@ const gurusList = shuffleArray([
   'Dancing-girl Pingala',
   'Raven',
   'Child',
-  'Maiden',
+  'Maiden who found peace',
   'Serpent',
   'An arrow-maker',
   'Spider',
