@@ -23,19 +23,19 @@ const StyledMainDiv = styled.div`
   display: flex;
   justify-content: flex-start;
   align-content: flex-start;
-  flex-flow: column wrap;
+  flex-flow: row wrap;
   margin: -10px;
   max-height: 100vh;
   max-width: 100%;
-  font-family: Arial;
+  font-family: 'Indie Flower', cursive;
   font-weight: 500;
-  font-size: 2.2em;
+  font-size: 2.5em;
 `
 
 const StyledChildDiv = styled.div`
-  width: calc(33% - 10px);
   height: 3em;
   text-align: center;
+  padding; 0.3em 1em;
   margin: 10px;
   color: darklateblue;
   background-color: honeydew;
