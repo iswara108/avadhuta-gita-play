@@ -35,7 +35,7 @@ const StyledMainDiv = styled.div`
 const StyledChildDiv = styled.div`
   height: 3em;
   text-align: center;
-  padding; 0.3em 1em;
+  padding: 0.3em 1em;
   margin: 10px;
   color: darklateblue;
   background-color: honeydew;
