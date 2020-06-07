@@ -3,7 +3,7 @@ const gurusList = shuffleArray([
   'Water',
   'Air',
   'Fire',
-  'Sky',
+  'Space',
   'Moon',
   'Sun',
   'Pigeon',
@@ -19,7 +19,7 @@ const gurusList = shuffleArray([
   'Raven',
   'Child',
   'Maiden who found peace',
-  'Serpent',
+  'Snake',
   'An arrow-maker',
   'Spider',
   'Beetle'
